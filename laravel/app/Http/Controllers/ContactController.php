@@ -18,4 +18,11 @@ class ContactController extends Controller
         }
         return 'request is unset';
     }
+
+    public function allData()
+    {
+        $data = Contact::all();
+
+        return view('messages', ['data' => $data]);
+    }
 }
