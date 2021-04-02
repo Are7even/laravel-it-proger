@@ -15,6 +15,9 @@
     @include('includes.hero')
 @endif
 
+<div class="container">
+    @include('includes.messages')
+</div>
 
 <div class="container mt-5">
     <div class="row">

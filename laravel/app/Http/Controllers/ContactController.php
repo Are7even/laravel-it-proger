@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function submit(ContactRequest $req){
-
-//        $validation = $req->validate([
-//           'email' => 'required|min:5|max:30',
-//           'name' => 'required|min:10|max:50',
-//        ]);
-
-
-
-        dd($req->input('email'));
+    public function submit(ContactRequest $req)
+    {
+        if (isset($req)) {
+            if (Contact::add($req->all())) {
+                return redirect()->route('home')->with('success', 'Сообщение было отправлено');
+            }
+            return 'request does not save';
+        }
+        return 'request is unset';
     }
 }
