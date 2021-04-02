@@ -20,7 +20,7 @@
                 {{$element->created_at}}
                 </small>
             </p>
-            <a href="">
+            <a href="{{route('contact-data-one',['id' => $element->id])}}">
                 <button class="btn btn-warning">More</button>
             </a>
         </div>

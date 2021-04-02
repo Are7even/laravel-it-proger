@@ -17,4 +17,20 @@ class Contact extends Model
         return $model->save();
     }
 
+    public static function updateMessage($id ,array $options = [])
+    {
+        $model = self::getById($id);
+        $model->name = $options['name'];
+        $model->email = $options['email'];
+        $model->subject = $options['subject'];
+        $model->message = $options['message'];
+        return $model->save();
+    }
+
+    public static function getById($id)
+    {
+        //$model = new self();
+        return self::find($id);
+    }
+
 }

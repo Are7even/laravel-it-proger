@@ -18,4 +18,18 @@ Route::post('/contact/submit', 'ContactController@submit')
     ->name('contact-form');
 
 Route::get('/contact/all', 'ContactController@allData')
-->name('contact-data');
+    ->name('contact-data');
+
+Route::get('/contact/all/{id}', 'ContactController@oneMessage')
+    ->name('contact-data-one');
+
+Route::get('/contact/all/{id}/update', 'ContactController@updateMessage')
+    ->name('contact-update');
+
+Route::get('/contact/all/{id}/delete', 'ContactController@deleteMessage')
+    ->name('contact-delete');
+
+Route::post('/contact/all/{id}/update', 'ContactController@updateMessageSubmit')
+    ->name('contact-update-submit');
+
+
